@@ -28,7 +28,117 @@ wax 小程序示例
 
 
 
+## 你的第一个 Wax 小程序
 
+为了降低学习成本，Wax小程序参考了微信小程序的架构，所以Wax小程序和开发思想和微信小程序极为相似。
+
+### 目录结构
+
+```
+├── app.css
+├── app.js
+├── app.json
+├── images
+│   ├── ic_setting.png
+└── pages
+    ├── index
+    │   ├── index.css
+    │   ├── index.html
+    │   ├── index.js
+    │   └── index.json
+    ├── logs
+    │   ├── logs.css
+    │   ├── logs.html
+    │   ├── logs.js
+    │   └── logs.json
+```
+
+### JSON 配置
+
+JSON 是一种数据格式，并不是编程语言，在小程序中，JSON扮演的静态配置的角色。
+
+我们可以看到在项目的根目录有一个 `app.json` 和 `project.config.json`，此外在 `pages/logs` 目录下还有一个 `logs.json`，我们依次来说明一下它们的用途。
+
+#### 小程序配置 app.json
+
+`app.json` 是当前小程序的全局配置，包括了小程序的所有页面路径、界面表现、网络超时时间、底部 tab 等。 示例项目里边的 `app.json` 配置内容如下：
+
+```json
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  }
+}
+```
+
+我们简单说一下这个配置各个项的含义:
+
+1. `pages`字段 —— 用于描述当前小程序所有页面路径，这是为了让微信客户端知道当前你的小程序页面定义在哪个目录。
+2. `window`字段 —— 定义小程序所有页面的顶部背景颜色，文字颜色定义等。
+
+其他配置项细节可以参考文档 [小程序的配置 app.json](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html) 。
+
+#### 页面配置 page.json
+
+这里的 `page.json` 其实用来表示 pages/logs 目录下的 `logs.json` 这类和小程序页面相关的配置。
+
+如果你整个小程序的风格是蓝色调，那么你可以在 `app.json` 里边声明顶部颜色是蓝色即可。实际情况可能不是这样，可能你小程序里边的每个页面都有不一样的色调来区分不同功能模块，因此我们提供了 `page.json`，让开发者可以独立定义每个页面的一些属性，例如刚刚说的顶部颜色、是否允许下拉刷新等等。
+
+其他配置项细节可以参考文档 [页面配置](https://developers.weixin.qq.com/miniprogram/dev/framework/config.html#页面配置) 。
+
+### HTML 模板
+
+从事过网页编程的人知道，网页编程采用的是 HTML + CSS + JS 这样的组合，其中 `HTML` 是用来描述当前这个页面的结构，`CSS` 用来描述页面的样子，`JS` 通常是用来处理这个页面和用户的交互。
+
+同样道理，在小程序中也有同样的角色。打开 `pages/index/index.html`，你会看到以下的内容:
+
+```html
+<div class="container">
+  <div class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}"> 获取头像昵称 </button>
+    <block wx:else>
+      <image src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </div>
+  <div class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </div>
+</div>
+```
+
+这里HTML是使用W3C标准，不同的是，不需要编写header、body等信息，仅需要编写body里面的内容。
+
+### CSS 样式
+
+这里CSS是使用W3C标准，和普通的web开发没有任何差异。
+
+### JS 逻辑交互
+
+一个服务仅仅只有界面展示是不够的，还需要和用户做交互：响应用户的点击、获取用户的位置等等。在小程序里边，我们就通过编写 `JS` 脚本文件来处理用户的操作。
+
+```
+Page({
+  clickMe: function() {
+    this.setData({ msg: "Hello World" })
+  }
+})
+```
+
+### 运行GIF
+
+
+
+## 总结
+
+开发过小程序的开发者应该发现，这个示例和[微信小程序的示例](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/code.html)，没有太大的区别，不同的是小程序的WXML改成了HTML，WXSS改成了CSS，微信小程序是自定义了一套DSL语言，虽然和W3C很接近，但依旧有差异，而Wax则基本完全遵循W3C标准，大大降低了开发者的学习成本。
 
 
 
