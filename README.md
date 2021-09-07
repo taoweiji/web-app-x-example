@@ -4,8 +4,7 @@ wax 小程序示例
 [示例APP 下载](https://github.com/taoweiji/web-app-x-example/releases/download/0.0.1/example-release.apk)
 
 
-![image](https://user-images.githubusercontent.com/3044176/132283878-d354d088-6966-41ab-8e00-ece911fad9b0.png)
-
+![eq](https://user-images.githubusercontent.com/3044176/132284066-3e745b5c-9b98-4d5c-b82f-8fd8f51049e8.png)
 
 
 
