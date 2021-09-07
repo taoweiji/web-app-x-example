@@ -4,6 +4,10 @@ wax 小程序示例
 [示例APP 下载](https://github.com/taoweiji/web-app-x-example/releases/download/0.0.1/example-release.apk)
 
 
+https://qr.api.cli.im/newqr/create?data=https%253A%252F%252Fgithub.com%252Ftaoweiji%252Fweb-app-x-example%252Freleases%252Fdownload%252F0.0.1%252Fexample-release.apk&level=H&transparent=false&bgcolor=%23FFFFFF&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=&logoshape=no&size=260&kid=cliim&key=4d8bb8b52c01d2ee20e44f6d3dc32b88![image](https://user-images.githubusercontent.com/3044176/132283878-d354d088-6966-41ab-8e00-ece911fad9b0.png)
+
+
+
 ![image](https://user-images.githubusercontent.com/3044176/120807122-2f966700-c57a-11eb-9bd0-62a46cc1a181.png)
 
 
